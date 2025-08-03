@@ -8,12 +8,7 @@ const ParallaxContainer = styled(motion.div)`
   overflow: hidden;
 `;
 
-// Floating Elements
-const FloatingElement = styled(motion.div)`
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
-`;
+
 
 // Background Shapes
 const BackgroundShape = styled(motion.div)`
@@ -342,7 +337,7 @@ export const InfiniteScroll = ({ children, speed = 50, direction = 'left' }) => 
   );
 };
 
-export default {
+const ParallaxEffects = {
   ParallaxBackground,
   FloatingShapes,
   ParallaxText,
@@ -354,3 +349,5 @@ export default {
   TiltEffect,
   InfiniteScroll
 };
+
+export default ParallaxEffects;

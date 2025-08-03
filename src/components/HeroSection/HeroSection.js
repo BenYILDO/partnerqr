@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaQrcode, FaMobile, FaChartLine, FaUsers, FaStar, FaPlay } from 'react-icons/fa';
+import { FaArrowRight, FaStar, FaPlay } from 'react-icons/fa';
 import BeamsBackground from '../BeamsBackground';
 
 const HeroContainer = styled.section`

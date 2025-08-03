@@ -20,18 +20,15 @@ import ContactModal from '../../components/ContactModal/ContactModal';
 import FloatingActions from '../../components/FloatingActions/FloatingActions';
 import { 
   FloatingShapes, 
-  ScrollReveal, 
   StaggerContainer, 
-  StaggerItem,
-  MagneticEffect,
-  TiltEffect 
+  StaggerItem
 } from '../../components/ParallaxEffects/ParallaxEffects';
 import { 
   HoverCard3D, 
   FloatingAnimation,
   ParticleSystem 
 } from '../../components/3DEffects/3DEffects';
-import Footer from '../../components/Footer/Footer';
+
 
 const PageContainer = styled(motion.div)`
   min-height: 100vh;
@@ -596,53 +593,7 @@ const HomePage = () => {
     setSelectedPlan(null);
   };
 
-  const features = [
-    {
-      icon: FaQrcode,
-      title: "QR Kod Menü",
-      description: "Müşterileriniz QR kodu okutarak anında menünüze erişebilir. Fiziksel menü maliyetlerini ortadan kaldırın."
-    },
-    {
-      icon: FaMobile,
-      title: "Mobil Uyumlu Tasarım",
-      description: "Tüm cihazlarda mükemmel görünen responsive menü tasarımları. Her ekran boyutunda optimal deneyim."
-    },
-    {
-      icon: FaChartLine,
-      title: "Detaylı Analitik",
-      description: "Müşteri davranışlarını analiz edin, satış trendlerini takip edin ve işletmenizi büyütün."
-    },
-    {
-      icon: FaUsers,
-      title: "Çoklu Dil Desteği",
-      description: "Farklı dillerde menü seçenekleri ile uluslararası müşterilerinize hitap edin."
-    },
-    {
-      icon: FaStar,
-      title: "Özelleştirilebilir Tasarım",
-      description: "Markanıza uygun renkler, logolar ve tasarım elementleri ile menünüzü kişiselleştirin."
-    },
-    {
-      icon: FaRocket,
-      title: "Hızlı Kurulum",
-      description: "5 dakikada kurulum tamamlanır. Anında kullanmaya başlayın, teknik bilgi gerektirmez."
-    },
-    {
-      icon: FaCog,
-      title: "Bulut Tabanlı",
-      description: "Verileriniz güvenli bulut sunucularında saklanır. Her yerden erişim imkanı."
-    },
-    {
-      icon: FaHeadset,
-      title: "7/24 Destek",
-      description: "Uzman ekibimiz her zaman yanınızda. WhatsApp, telefon ve e-posta desteği."
-    },
-    {
-      icon: FaShieldAlt,
-      title: "Güvenli Altyapı",
-      description: "SSL sertifikası ve güvenli ödeme altyapısı ile müşteri bilgileri korunur."
-    }
-  ];
+
 
   const pricingPlans = [
     {
@@ -690,15 +641,7 @@ const HomePage = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+
 
   const itemVariants = {
     hidden: { 

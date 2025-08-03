@@ -313,7 +313,7 @@ export const MagneticAttraction = ({
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const elementRef = useRef(null);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = React.useCallback((e) => {
     if (!elementRef.current) return;
 
     const rect = elementRef.current.getBoundingClientRect();
@@ -333,12 +333,12 @@ export const MagneticAttraction = ({
     } else {
       setPosition({ x: 0, y: 0 });
     }
-  };
+  }, [strength, distance]);
 
   React.useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove);
     return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [handleMouseMove]);
 
   return (
     <motion.div
@@ -355,7 +355,7 @@ export const MagneticAttraction = ({
   );
 };
 
-export default {
+const ThreeDEffects = {
   HoverCard3D,
   FloatingAnimation,
   MorphingShape,
@@ -364,3 +364,5 @@ export default {
   HolographicEffect,
   MagneticAttraction
 };
+
+export default ThreeDEffects;
