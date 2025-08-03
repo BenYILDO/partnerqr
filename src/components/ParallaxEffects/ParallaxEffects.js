@@ -37,10 +37,39 @@ export const ParallaxBackground = ({ children, intensity = 0.5 }) => {
   );
 };
 
+// Individual Shape Component
+const FloatingShape = ({ shape, index }) => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, (index + 1) * 100]);
+  const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
+
+  return (
+    <BackgroundShape
+      style={{
+        width: shape.size,
+        height: shape.size,
+        top: shape.top,
+        left: shape.left,
+        right: shape.right,
+        bottom: shape.bottom,
+        background: shape.gradient,
+        blur: shape.blur,
+        y,
+        rotate
+      }}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ 
+        duration: 2, 
+        delay: index * 0.5,
+        ease: "easeOut"
+      }}
+    />
+  );
+};
+
 // Floating Shapes Component
 export const FloatingShapes = () => {
-  const { scrollY } = useScroll();
-  
   const shapes = [
     {
       id: 1,
@@ -78,35 +107,9 @@ export const FloatingShapes = () => {
 
   return (
     <>
-      {shapes.map((shape, index) => {
-        const y = useTransform(scrollY, [0, 1000], [0, (index + 1) * 100]);
-        const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
-        
-        return (
-          <BackgroundShape
-            key={shape.id}
-            style={{
-              width: shape.size,
-              height: shape.size,
-              top: shape.top,
-              left: shape.left,
-              right: shape.right,
-              bottom: shape.bottom,
-              background: shape.gradient,
-              blur: shape.blur,
-              y,
-              rotate
-            }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              duration: 2, 
-              delay: index * 0.5,
-              ease: "easeOut"
-            }}
-          />
-        );
-      })}
+      {shapes.map((shape, index) => (
+        <FloatingShape key={shape.id} shape={shape} index={index} />
+      ))}
     </>
   );
 };
